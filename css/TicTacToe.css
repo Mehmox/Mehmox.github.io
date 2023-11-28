@@ -1,0 +1,52 @@
+body {
+    background-color: green;
+}
+
+main {
+    position: absolute;
+    left: 39%;
+    top: 11%;
+    text-align: center;
+    color: rgb(134, 80, 1);
+}
+
+#wl {
+    font-size: 80px;
+}
+
+table {
+    border: black solid;
+}
+
+td {
+    border: black solid;
+}
+
+button[onclick="xox(id)"] {
+    height: 150px;
+    width: 150px;
+    font-size: 120px;
+    color: red;
+    background-color: blue;
+}
+
+#select {
+    position: absolute;
+    right: -55%;
+    top: 40%;
+    font-size: 40px;
+}
+
+button[type="radio"] {
+    height: 70px;
+    width: 70px;
+    font-size: 50px;
+    color: aqua;
+    background-color: red;
+}
+
+#reset {
+    background-color: orange;
+    height: 20px;
+    width: 70px;
+}

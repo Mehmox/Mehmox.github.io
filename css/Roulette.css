@@ -1,0 +1,30 @@
+main {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-image: url("img/RouletteBGround.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#rulet {
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    border-radius: 45%;
+    border-color: goldenrod;
+    color: white;
+    font-size: 30px;
+    margin-top: 1%;
+}
+
+h1 {
+    font-size: 80px;
+    color: goldenrod;
+}
+
+p {
+    color: white;
+}

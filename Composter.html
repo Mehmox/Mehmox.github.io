@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Composter</title>
+    <link rel="stylesheet" href="css/Composter.css">
+    <link rel="stylesheet" href="css/back.css">
+    <link rel="icon" href="img/Compost.png" type="css/x-icon">
+</head>
+
+<body>
+    <nav><a href="index.html" title="index.html">
+            <img src="img/BackArrow.png" alt="404" class="back"></a></nav>
+    <h1>Composter Calculater</h1>
+    <main>
+        <div id="logo"><img class="img" src="img/Compost.png" alt="Compost"></div>
+        <section>
+            <table id="table1">
+                <tr>
+                    <td id="output1S"></td>
+                    <td id="output1N"></td>
+                </tr>
+                <tr>
+                    <td id="output2S"></td>
+                    <td id="output2N"></td>
+                </tr>
+                <tr>
+                    <td id="output3S"></td>
+                    <td id="output3N"></td>
+                </tr>
+                <tr>
+                    <td id="output4S"></td>
+                    <td id="output4N"></td>
+                </tr>
+                <tr>
+                    <td id="output5S"></td>
+                    <td id="output5N"></td>
+                </tr>
+                <tr>
+                    <td id="output6S"></td>
+                    <td id="output6N"></td>
+                </tr>
+                <tr>
+                    <td id="output7S"></td>
+                    <td id="output7N"></td>
+                </tr>
+                <tr>
+                    <td id="output8S"></td>
+                    <td id="output8N" class="time"></td>
+                </tr>
+                <tr>
+                    <td id="output9" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td id="output10S"></td>
+                    <td id="output10N"></td>
+                </tr>
+                <tr>
+                    <td id="output11S"></td>
+                    <td id="output11N"></td>
+                </tr>
+                <tr>
+                    <td id="output12S"></td>
+                    <td id="output12N"></td>
+                </tr>
+                <tr>
+                    <td id="output13S"></td>
+                    <td id="output13N"></td>
+                </tr>
+            </table>
+        </section>
+        <section>
+            <table id="table2">
+                <tr>
+                    <td>Speed</td>
+                    <td><input id="ComposterSpeedlvl" type="range" min="0" max="25" value="14" oninput=display()></td>
+                    <td id="Speed" class="range"></td>
+                </tr>
+                <tr>
+                    <td>Fortune</td>
+                    <td><input id="MultiDroplvl" type="range" min="0" max="25" value="9" oninput=display()></td>
+                    <td id="Fortune" class="range"></td>
+                </tr>
+                <tr>
+                    <td>Fuel</td>
+                    <td><input id="FuelCaplvl" type="range" min="0" max="25" value="1" oninput=display()></td>
+                    <td id="Fuel" class="range"></td>
+                </tr>
+                <tr>
+                    <td>Organic</td>
+                    <td><input id="OrganicMatterCaplvl" type="range" min="0" max="25" value="10" oninput=display()></td>
+                    <td id="Organic" class="range"></td>
+                </tr>
+                <tr>
+                    <td>Reduce</td>
+                    <td><input id="CostReductionlvl" type="range" min="0" max="25" value="10" oninput=display()></td>
+                    <td id="Reduce" class="range"></td>
+                </tr>
+                <tr>
+                    <td>Compost Sell Price</td>
+                    <td colspan="2"><input id="Sellp" type="number" min="1" value="21612" oninput=display()></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <script src="js/Composter.js"></script>
+</body>
+
+</html>
