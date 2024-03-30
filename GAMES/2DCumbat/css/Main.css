@@ -1,0 +1,12 @@
+html,
+body {
+    margin: 0;
+}
+
+.Moving-enemies {
+    /* display: flex;
+    justify-content: center;
+    align-self: center; */
+    height: 50px;
+    width: 50px;
+}

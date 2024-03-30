@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/Menu.css">
+
+<body>
+    <main>
+        <table>
+            <tr>
+                <td>
+                    <button onclick="window.location.href='Updates.html'">Updates</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="varibles">
+                    <label>OD:<input type="number" min="0" max="10" id="OD" value="0"></label>
+                    <label>AR:<input type="number" min="0" max="10" id="AR" value="0"></label>
+                    <label>CS:<input type="number" min="0" max="10" id="CS" value="0"></label>
+                    <label>HP:<input type="number" min="0" max="0" id="HP" value="0"></label>
+                </td>
+            </tr>
+            <tr>
+                <td id="BPM">
+                    <label>Enter BPM:<input id="User-input" type="number" value="80" min="30"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><button onclick="newmap()">New Map</button></label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="modeSet('N')">Normal</button>
+                    <button onclick="modeSet('H')">Hard</button>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <script src="js/Varibles.js"></script>
+    <script>
+        window.onload = Datas;
+        function Datas() {
+            if (localStorage.getItem("Game_OD") !== null) document.getElementById("OD").value = localStorage.getItem("Game_OD")
+            if (localStorage.getItem("Game_AR") !== null) document.getElementById("AR").value = localStorage.getItem("Game_AR")
+            if (localStorage.getItem("Game_CS") !== null) document.getElementById("CS").value = localStorage.getItem("Game_CS")
+            // if (localStorage.getItem("Game_HP") !== null) document.getElementById("HP").value = localStorage.getItem("Game_HP")
+            if (localStorage.getItem("inputBPM") !== null) document.getElementById("User-input").value = localStorage.getItem("inputBPM")
+        }
+        function modeSet(Type) {
+            localStorage.setItem("Game_Mode", Type)
+            localStorage.setItem("inputBPM", parseInt(document.getElementById("User-input").value))
+
+            localStorage.setItem("Game_OD", parseInt(document.getElementById("OD").value))
+            localStorage.setItem("Game_AR", parseInt(document.getElementById("AR").value))
+            localStorage.setItem("Game_CS", parseInt(document.getElementById("CS").value))
+            // localStorage.setItem("Game_HP", parseInt(document.getElementById("HP").value))
+            window.location.href = "Game.html";
+        }
+        function newmap() { window.location.href = "Edit.html"; }
+    </script>
+</body>
+
+</html>
