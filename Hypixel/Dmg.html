@@ -46,31 +46,34 @@
             <tr>
                 <td id="Result"></td>
             </tr>
+            <tr>
+                <td id="Test Result"></td>
+            </tr>
         </table>
 
         <table class="in_out_Table">
             <thead>
-                <td>
-                    <select id="DamageType" onchange="Calculate()">
-                        <option value="Mele" selected>Melee Damage</option>
-                        <option value="Bow">Bow Damage</option>
-                        <option value="Abilty">Ability Damage</option>
-                    </select>
-                </td>
                 <tr>
                     <td>
-                        <select id="UniverseType" onchange="Calculate()">
-                            <option value="Dungeon" selected>Dungeon</option>
-                            <option value="World">World</option>
+                        <select id="DamageType" onchange="Calculate()">
+                            <option value="Mele" selected>Melee Damage</option>
+                            <option value="Bow">Bow Damage</option>
+                            <option value="Abilty">Ability Damage</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <select id="UniverseType" onchange="Calculate()">
+                            <option value="World" selected>World</option>
+                            <option value="Dungeon">Dungeon</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <select id="ClassType" onchange="Calculate()">
-                            <option selected>Class</option>
+                            <option value="Non" selected>Class</option>
                             <option value="Archer">Archer</option>
                             <option value="Berserk">Berserk</option>
                             <option value="Mage">Mage</option>
@@ -79,7 +82,7 @@
                 </tr>
                 <tr>
                     <td>Combatlvl <span id="rageoutput1" class="rageoutput"></span><br>
-                        <input id="rageinput1" type="range" min="0" max="60" value="0" oninput="Calculate()">
+                        <input id="rageinput1" type="range" min="0" max="60" value="53" oninput="Calculate()">
                     </td>
                 </tr>
                 <tr>
@@ -96,9 +99,9 @@
 
             <tbody>
                 <tr>
-                    <td>BASE Strength <input id="BaseSTR" type="number" value="0" onchange="Calculate()"></td>
-                    <td>Bestiary Strength <input id="BestiarySTR" type="number" value="0" onchange="Calculate()"></td>
-                    <td>BASE CritDamage <input id="BaseCritD" type="number" value="0" onchange="Calculate()"></td>
+                    <td>BASE Strength <input id="BaseSTR" type="number" value="210.25" onchange="Calculate()"></td>
+                    <td>Bestiary Strength <input id="BestiarySTR" type="number" value="37" onchange="Calculate()"></td>
+                    <td>BASE CritDamage <input id="BaseCritD" type="number" value="154" onchange="Calculate()"></td>
                 </tr>
                 <tr>
                     <td>Magical Power <input id="MP" type="number" value="0" min="0" onchange="Calculate()"></td>
@@ -114,22 +117,23 @@
                 <tr>
                     <td>
                         <select id="Weapon" onchange="Calculate()">
-                            <option value="Hand" selected>Weapon</option>
+                            <option value="Hand">Weapon</option>
                             <option value="Term">Term</option>
                             <option value="Hyper_Cleaver">Hyper Cleaver</option>
                             <option value="Giant_Cleaver">Giant Cleaver</option>
                             <option value="Livid_Dagger">Livid Dagger</option>
+                            <option value="FOT" selected>Flower Of Truth</option>
                         </select>
                     </td>
                     <td>Star <input id="WeaponStarRange" type="range" value="0" min="0" max="10"
                             oninput="Calculate()"><span id="WeaponStar"></span></td>
                     <td>
                         <select id="WeaponReforge" onchange="Calculate()">
-                            <option value="Non" selected>Reforge</option>
+                            <option value="Non">Reforge</option>
                             <option value="Hasty">Hasty</option>
                             <option value="Precise">Precise</option>
                             <option value="Spiritual">Spiritual</option>
-                            <option value="Spicy">Spicy</option>
+                            <option value="Spicy" selected>Spicy</option>
                         </select>
                         <label><input id="WeaponRecomb" type="checkbox" onchange="Calculate()">Recomb</label>
                     </td>
@@ -311,6 +315,7 @@
         </table>
     </div>
 
+    <script src="js/deneme.js"></script>
     <script src="js/Varibles.js"></script>
     <script src="js/app.js"></script>
 </body>
