@@ -1,6 +1,6 @@
 var MasterSkull = 0, MasterSkullLvl = 0,
     Legion = 0, Legionlvl = 0, LegionP = 0,
-    Souleather = 0, SouleatherLvL = 0, SouleatherSTR = 350,
+    Souleather = 0, SouleatherLvL = 0, SouleatherSTR = 0,
     CatacombB = 10, CArrowD = 0, CExtraAC = 0, E1, E2, E3, E4, E5,
     Combatdmg = 0, Enchants = 0, Overload = 0,
     Bestiary = 0, SellectedArrowDmg = 1,
@@ -22,7 +22,7 @@ var MasterSkull = 0, MasterSkullLvl = 0,
 var DmgMin, DmgMax, DPSMin, DPSMax, N = 4, i = 0,
     Combatlvl = parseInt(document.getElementById("rageinput1").value),
     Catacomblvl = parseInt(document.getElementById("rageinput2").value),
-    Classlvl = parseInt(document.getElementById("rageinput3").value),
+    Classlvl = 0,
     Universe,
     DamageType,
     ClassName,
@@ -33,6 +33,7 @@ var DmgMin, DmgMax, DPSMin, DPSMax, N = 4, i = 0,
     BootsName, Equipment4Name,
     Pet,
     AccesoryReforgeName;
+
 
 var Stats = {
     Damage: 0,
@@ -96,14 +97,23 @@ var Weapons = {
         Bonus_Attack_Speed: 50,
         Rarity: 5,
     },
+    FOT: {
+        Damage: 160,
+        Strength: 300,
+        Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
+        Rarity: 5,
+    },
 }
 
 var Gears = {
     Strength: 0,
     Crit_Damage: 0,
+    Bonus_Attack_Speed: 0,
     Helmet: {
         Strength: 0,
         Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
         Star: 0,
         MasterStar: 0,
         Reforge: "Non",
@@ -113,30 +123,35 @@ var Gears = {
         Naked: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 0,
             isfloorhelmet: false,
         },
         DNH: {
             Strength: 40,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 6,
             isfloorhelmet: true,
         },
         Necron: {
             Strength: 40,
             Crit_Damage: 30,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
             isfloorhelmet: false,
         },
         Frozen_Blaze: {
             Strength: 40,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
             isfloorhelmet: false,
         },
         Unstable_Dragon: {
             Strength: 0,
             Crit_Damage: 15,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
             isfloorhelmet: false,
         },
@@ -144,6 +159,7 @@ var Gears = {
     ChestPlate: {
         Strength: 0,
         Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
         Star: 0,
         MasterStar: 0,
         Reforge: "Non",
@@ -152,27 +168,32 @@ var Gears = {
         Naked: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 0,
         },
         Necron: {
             Strength: 40,
             Crit_Damage: 30,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
         Frozen_Blaze: {
             Strength: 40,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
         Unstable_Dragon: {
             Strength: 0,
             Crit_Damage: 15,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
     },
     Leggings: {
         Strength: 0,
         Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
         Star: 0,
         MasterStar: 0,
         Reforge: "Non",
@@ -181,27 +202,32 @@ var Gears = {
         Naked: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 0,
         },
         Necron: {
             Strength: 40,
             Crit_Damage: 30,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
         Frozen_Blaze: {
             Strength: 40,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
         Unstable_Dragon: {
             Strength: 0,
             Crit_Damage: 15,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
     },
     Boots: {
         Strength: 0,
         Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
         Star: 0,
         MasterStar: 0,
         Reforge: "Non",
@@ -210,27 +236,32 @@ var Gears = {
         Naked: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 0,
         },
         Necron: {
             Strength: 40,
             Crit_Damage: 30,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
         Frozen_Blaze: {
             Strength: 40,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
         Unstable_Dragon: {
             Strength: 0,
             Crit_Damage: 15,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
     },
     Equipment1: {
         Strength: 0,
         Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
         Star: 0,
         MasterStar: 0,
         Reforge: "Non",
@@ -239,17 +270,20 @@ var Gears = {
         Naked: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 0,
         },
         Bone: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 4,
         },
     },
     Equipment2: {
         Strength: 0,
         Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
         Star: 0,
         MasterStar: 0,
         Reforge: "Non",
@@ -258,22 +292,26 @@ var Gears = {
         Naked: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 0,
         },
         Assassin: {
             Strength: 20,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 4,
         },
         FAssassin: {
             Strength: 25,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 5,
         },
     },
     Equipment3: {
         Strength: 0,
         Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
         Star: 0,
         MasterStar: 0,
         Reforge: "Non",
@@ -282,17 +320,20 @@ var Gears = {
         Naked: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 0,
         },
         Adaptive: {
             Strength: 5,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 4,
         },
     },
     Equipment4: {
         Strength: 0,
         Crit_Damage: 0,
+        Bonus_Attack_Speed: 0,
         Star: 0,
         MasterStar: 0,
         Reforge: "Non",
@@ -301,11 +342,13 @@ var Gears = {
         Naked: {
             Strength: 0,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 0,
         },
         Soulweaver: {
             Strength: 10,
             Crit_Damage: 0,
+            Bonus_Attack_Speed: 0,
             Rarity: 4,
         },
     },
@@ -727,3 +770,20 @@ var Pets = {
     }
 
 }
+
+var
+    HelmetSC = Gears.Helmet,
+    ChestPCS = Gears.ChestPlate,
+    LegSC = Gears.Leggings,
+    BootsSC = Gears.Boots,
+
+    Equip1SC = Gears.Equipment1,
+    Equip2SC = Gears.Equipment2,
+    Equip3SC = Gears.Equipment3,
+    Equip4SC = Gears.Equipment4;
+
+
+
+
+//test
+var ofa
