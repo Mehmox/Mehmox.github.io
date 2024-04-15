@@ -1,0 +1,94 @@
+body {
+    background-image: url("img/background3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+h1 {
+    color: blue;
+    font-size: 7rem;
+    text-align: center;
+}
+
+.css {
+    color: red;
+    padding-top: 5rem;
+}
+
+h2 {
+    color: #4A8FFF;
+    font-size: 2rem;
+    padding-left: 1rem;
+}
+
+h3 {
+    color: red;
+    font-size: 1rem;
+}
+
+h1.Kurs {
+    font-size: 2.25rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+h2.Kurs {
+    font-size: 1.5rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+h3.Kurs {
+    font-size: 1.17rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
+.Baslik {
+    font-size: 4rem;
+}
+
+video {
+    width: 400px;
+    height: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.fotobutton {
+    width: 6%;
+    height: 6%;
+}
+
+.mini {
+    padding-bottom: 0.7%;
+}
+
+#dice {
+    padding-bottom: 1.5%;
+}
+
+#spat {
+    width: 5%;
+}
+
+#Discordinpt {
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+#Game {
+    width: 5%;
+}
+
+#OSU {
+    margin-bottom: 0.3%;
+}
+
+.dc {
+    cursor: pointer;
+}
