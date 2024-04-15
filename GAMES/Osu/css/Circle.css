@@ -1,0 +1,34 @@
+.Daire_butun_alan {
+    position: absolute;
+    background-image: url("../img/OutCircle.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100;
+    opacity: 0;
+    display: grid;
+    place-items: center;
+    height: 200px;
+    width: 200px;
+}
+
+.Daire_Tiklama_alani {
+    background-image: url("../img/Osucircle.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    color: aqua;
+    height: 62px;
+    width: 62px;
+}
+
+.Daire_Tiklama_alani:hover {
+    cursor: inherit;
+}
+
+.Daire_Skor {
+    position: absolute;
+    font-size: 20pt;
+    color: red;
+}
