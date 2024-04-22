@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypixel Skyblock</title>
+    <link rel="stylesheet" href="css/Dmg.css">
+    <link rel="icon" href="img/Minecrafticon.png" type="css/x-icon">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+</head>
+
+<body>
+    <div>
+        <table class="in_out_Table" id="output" cellpadding="0dp">
+            <tr>
+                <td style="display: flex; border: unset;">
+                    <table>
+                        <tr>
+                            <td id="Buffs"></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td id="Blessings"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="display: flex; border: unset;">
+                    <table>
+                        <tr>
+                            <td id="Gear" title="Gear"></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td id="Equipment" title="Equipment"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td id="Stats"></td>
+            </tr>
+            <tr>
+                <td id="Result"></td>
+            </tr>
+            <tr>
+                <td id="Test Result"></td>
+            </tr>
+        </table>
+        <table class="in_out_Table" cellspacing="0dp" cellpadding="0dp">
+            <thead>
+                <tr>
+                    <td>
+                        <select id="DamageType" onchange="Calculate()">
+                            <option value="Mele" selected>Melee Damage</option>
+                            <option value="Bow">Bow Damage</option>
+                            <option value="Ability">Ability Damage</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Universe" onchange="Calculate()">
+                            <option value="World" selected>World</option>
+                            <option value="Crimson">Crimson</option>
+                            <option value="Dungeon">Dungeon</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Class" onchange="Calculate()">
+                            <option value="Non" selected>Class</option>
+                            <option value="Archer">Archer</option>
+                            <option value="Berserk">Berserk</option>
+                            <option value="Mage">Mage</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Combatlvl <span id="rageoutput1" class="rageoutput"></span><br>
+                        <input id="Combatlvl" type="range" min="0" max="60" value="0" oninput="Calculate()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Catacomblvl <span id="rageoutput2" class="rageoutput"></span><br>
+                        <input id="Catacomblvl" type="range" min="0" max="50" value="0" oninput="Calculate()">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Classlvl <span id="rageoutput3" class="rageoutput"></span><br>
+                        <input id="Classlvl" type="range" min="0" max="50" value="0" oninput="Calculate()">
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Bestiary Strength <input id="Bestiary" type="number" value="0" onchange="Calculate()"></td>
+                </tr>
+                <tr>
+                    <td>BASE Strength <input id="BASESTR" type="number" value="0" onchange="Calculate()"></td>
+                    <td>BASE CritDamage <input id="BASECRITD" type="number" value="0" onchange="Calculate()"></td>
+                    <td>BASE Intelligence <input id="BASEInt" type="number" value="0" onchange="Calculate()"></td>
+                </tr>
+                <tr>
+                    <td>Magical Power <input id="MP" type="number" value="0" min="0" onchange="Calculate()"></td>
+                    <td>
+                        <select id="MPR" onchange="Calculate()">
+                            <option value="Non" selected>Non</option>
+                            <option value="Silky">Silky</option>
+                            <option value="Itchy">Itchy</option>
+                            <option value="Fortuitous">Fortuitous</option>
+                            <option value="Sighted">Sighted</option>
+                            <option value="Bizarre">Bizarre</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>Legion<input id="LegionLvL" type="number" min="0" max="20" value="0"
+                                onchange="Calculate()"></label>
+                    </td>
+                    <td>
+                        <label>LegionPlayer<input id="LegionP" type="number" min="0" max="20" value="0"
+                                onchange="Calculate()"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>MasterSkull<input id="MasterSkull" type="number" min="0" max="7" value="0"
+                                onchange="Calculate()"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Weapon" onchange="Calculate()">
+                            <option value="Hand" selected>Weapon</option>
+                            <!-- <option value="TestSword">Test Sword</option>
+                            <option value="GS">Giant Sword</option>
+                            <option value="Term">Term</option>
+                            <option value="Juju">Juju</option>
+                            <option value="Giant_Cleaver">Giant Cleaver</option>
+                            <option value="Hyper_Cleaver">Hyper Cleaver</option>
+                            <option value="Super_Cleaver">Super Cleaver</option>
+                            <option value="Cleaver">Cleaver</option>
+                            <option value="FOT">Flower Of Truth</option>
+                            <option value="Livid_Dagger">Livid Dagger</option>
+                            <option value="Artisanal">Artisanal</option> -->
+                        </select>
+                    </td>
+                    <td>Star <input id="WeaponStarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="WeaponStar"></span></td>
+                    <td>
+                        <select id="WeaponReforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                            <option value="Hasty">Hasty</option>
+                            <option value="Precise">Precise</option>
+                            <option value="Spiritual">Spiritual</option>
+                            <option value="Spicy">Spicy</option>
+                        </select>
+                        <label><input id="WeaponRecomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Helmet" onchange="Calculate()">
+                            <option value="Naked" selected>Helmet</option>
+                            <option value="Necron">Necron</option>
+                            <option value="DNH">D Necron Head</option>
+                            <option value="Frozen_Blaze">Frozen Blaze</option>
+                            <option value="Unstable_Dragon">Unstable Dragon</option>
+                        </select>
+                    </td>
+                    <td>Star <input id="HelmetStarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="HelmetStar"></span></td>
+                    <td>
+                        <select id="HelmetReforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                            <option value="Fierce">Fierce</option>
+                            <option value="Ancient">Ancient</option>
+                        </select>
+                        <label><input id="HelmetRecomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="ChestPlate" onchange="Calculate()">
+                            <option value="Naked" selected>ChestPlatelate</option>
+                            <option value="Necron">Necron</option>
+                            <option value="Frozen_Blaze">Frozen Blaze</option>
+                            <option value="Unstable_Dragon">Unstable Dragon</option>
+                        </select>
+                    </td>
+                    <td>Star <input id="ChestPlateStarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="ChestPlateStar"></span></td>
+                    <td>
+                        <select id="ChestPlateReforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                            <option value="Fierce">Fierce</option>
+                            <option value="Ancient">Ancient</option>
+                        </select>
+                        <label><input id="ChestPlateRecomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Leggings" onchange="Calculate()">
+                            <option value="Naked" selected>Leggings</option>
+                            <option value="Necron">Necron</option>
+                            <option value="Frozen_Blaze">Frozen Blaze</option>
+                            <option value="Unstable_Dragon">Unstable Dragon</option>
+                        </select>
+                    </td>
+                    <td>Star <input id="LeggingsStarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="LeggingsStar"></span></td>
+                    <td>
+                        <select id="LeggingsReforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                            <option value="Fierce">Fierce</option>
+                            <option value="Ancient">Ancient</option>
+                        </select>
+                        <label><input id="LeggingsRecomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Boots" onchange="Calculate()">
+                            <option value="Naked" selected>Boots</option>
+                            <option value="Necron">Necron</option>
+                            <option value="Frozen_Blaze">Frozen Blaze</option>
+                            <option value="Unstable_Dragon">Unstable Dragon</option>
+                        </select>
+                    </td>
+                    <td>Star <input id="BootsStarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="BootsStar"></span></td>
+                    <td>
+                        <select id="BootsReforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                            <option value="Fierce">Fierce</option>
+                            <option value="Ancient">Ancient</option>
+                        </select>
+                        <label><input id="BootsRecomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Pet" onchange="Calculate()">
+                            <option value="Non" selected>Pet</option>
+                            <option value="Ender_Dragon">Ender
+                                Dragon</option>
+                            <option value="Frozen_Blaze">Frozen
+                                Blaze</option>
+                            <option value="Golden_Dragon">Golden
+                                Dragon</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <!-- Equipments -->
+                <tr>
+                    <td>
+                        <select id="Equipment1" onchange="Calculate()">
+                            <option value="Naked" selected>Necklace</option>
+                            <option value="Bone">Bone</option>
+                        </select>
+                    </td>
+                    <td>Star <input id="Equipment1StarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="Equipment1Star"></span></td>
+                    <td>
+                        <select id="Equipment1Reforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                        </select>
+                        <label><input id="Equipment1Recomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Equipment2" onchange="Calculate()">
+                            <option value="Naked" selected>Cloak</option>
+                            <option value="Assassin">Shadow Assassin</option>
+                            <option value="FAssassin">⚚ Shadow Assassin</option>
+                        </select>
+                    </td>
+                    <td>Star <input id="Equipment2StarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="Equipment2Star"></span></td>
+                    <td>
+                        <select id="Equipment2Reforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                        </select>
+                        <label><input id="Equipment2Recomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Equipment3" onchange="Calculate()">
+                            <option value="Naked" selected>Belt</option>
+                            <option value="Adaptive">Adaptive</option>
+                        </select>
+                    </td>
+                    <td>Star <input id="Equipment3StarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="Equipment3Star"></span></td>
+                    <td>
+                        <select id="Equipment3Reforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                        </select>
+                        <label><input id="Equipment3Recomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="Equipment4" onchange="Calculate()">
+                            <option value="Naked" selected>Gloves/Bracelet</option>
+                            <option value="Soulweaver">Soulweaver </option>
+                        </select>
+                    </td>
+                    <td>Star <input id="Equipment4StarRange" type="range" value="0" min="0" max="10"
+                            oninput="Calculate()"><span id="Equipment4Star"></span></td>
+                    <td>
+                        <select id="Equipment4Reforge" onchange="Calculate()">
+                            <option value="Non" selected>Reforge</option>
+                        </select>
+                        <label><input id="Equipment4Recomb" type="checkbox" onchange="Calculate()">Recomb</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <button onclick="localStorage.clear(); location.reload()">Reset Settings</button>
+        </div>
+    </div>
+    <script src="js/Storage.js"></script>
+    <script src="js/Varibles.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
